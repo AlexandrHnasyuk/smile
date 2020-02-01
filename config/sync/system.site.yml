@@ -1,0 +1,14 @@
+uuid: 47df55a7-fad6-498d-abd4-e028754b14ed
+name: smile
+mail: gnasyuk@gmail.com
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+_core:
+  default_config_hash: yTxtFqBHnEWxQswuWvkjE8mKw2t8oKuCL1q8KnfHuGE

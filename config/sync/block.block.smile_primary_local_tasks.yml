@@ -1,0 +1,22 @@
+uuid: 65aaa8a0-d779-4c14-977f-c600db0e2825
+langcode: en
+status: true
+dependencies:
+  theme:
+    - smile
+_core:
+  default_config_hash: CyX_aDKAka2_eihevNLscCHDYrzDgIqwWzFVEFRKIww
+id: smile_primary_local_tasks
+theme: smile
+region: header
+weight: 0
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Primary tabs'
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: false
+visibility: {  }

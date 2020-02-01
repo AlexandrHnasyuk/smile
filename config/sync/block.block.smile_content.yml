@@ -1,0 +1,22 @@
+uuid: 1704574e-f086-46d0-8ffa-8a734012b5a4
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - smile
+_core:
+  default_config_hash: 80N66GdzEvwqi1m-_GZ-ulkk8AJG9beoXcZ4-pMVKjI
+id: smile_content
+theme: smile
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

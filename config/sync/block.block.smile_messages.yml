@@ -1,0 +1,22 @@
+uuid: 6666a2d3-b110-48ab-b39c-786d46636bf0
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - smile
+_core:
+  default_config_hash: YqKTtloWJ8FjLtfVNfrHaK6kVgxT67lC1cJ3j6i6WLo
+id: smile_messages
+theme: smile
+region: header
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

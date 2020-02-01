@@ -1,0 +1,27 @@
+uuid: 7cb9dc2f-d51b-4a08-adef-9e1481022394
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_template
+field_name: field_template
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: faq
+      label: FAQ
+    -
+      value: sitemap
+      label: SiteMap
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,11 @@
+uuid: d5d9e753-790e-466b-91ef-692ec864aba7
+langcode: en
+status: true
+dependencies: {  }
+id: manager
+label: Manager
+weight: 3
+is_admin: null
+permissions:
+  - 'edit any blog_article content'
+  - 'edit own blog_article content'

@@ -1,0 +1,20 @@
+uuid: 820c366e-f6bd-410f-b3ab-ec5206b0b2fe
+langcode: en
+status: true
+dependencies:
+  theme:
+    - smile
+_core:
+  default_config_hash: Z3nlZUh2mSJP3apMrJWt-duS-aLyP79rcfu_0wpPmDs
+id: smile_page_title
+theme: smile
+region: header
+weight: -30
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility: {  }
