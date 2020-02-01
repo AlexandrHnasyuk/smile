@@ -1,0 +1,17 @@
+base theme: bartik
+name: Smile
+description: 'This sub theme with bartik.'
+type: theme
+package: Core
+core: 8.x
+
+libraries:
+  - smile/global-styling
+
+regions:
+  header: Header
+  breadcrumb: Breadcrumb
+  content: Content
+  sidebar_first: First sidebar
+  sidebar_second: Second sidebar
+  footer: Footer

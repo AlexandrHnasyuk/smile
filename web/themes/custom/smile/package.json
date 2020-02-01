@@ -1,0 +1,14 @@
+{
+  "name": "smile",
+  "version": "1.0.0",
+  "description": "Theme Smile",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alex",
+  "license": "ISC",
+  "dependencies": {
+    "jcf": "^1.2.3"
+  }
+}
