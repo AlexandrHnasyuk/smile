@@ -1,0 +1,6 @@
+name: Namespacing
+type: module
+description: 'Study namespaces anr PSR-4 autoloader.'
+package: Custom
+version: 1
+core: 8.x

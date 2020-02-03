@@ -1,0 +1,7 @@
+namespaces.hello:
+  path: '/hello'
+  defaults:
+    _controller: '\Drupal\namespaces\Controller\HelloController::hello'
+    _title: 'Page "Hello Smile")))'
+  requirements:
+    _permission: 'access content'
