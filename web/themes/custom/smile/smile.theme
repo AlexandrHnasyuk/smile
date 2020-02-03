@@ -1,1 +1,25 @@
 <?php
+
+/**
+ * Implements hook_theme().
+ */
+function smile_theme($existing, $type, $theme, $path) {
+  return [
+    'node__page' => [
+      'pattern' => 'node__page__',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
+function smile_theme_suggestions_node__page_alter(array &$suggestions, array $variables) {
+  $template_value = $variables['elements']['field_template']['0']['#markup'];
+  if ($template_value == 'FAQ') {
+    $suggestions[] = 'node__page__faq';
+  }
+  if ($template_value == 'SiteMap') {
+    $suggestions[] = 'node__page__sitemap';
+  }
+}
