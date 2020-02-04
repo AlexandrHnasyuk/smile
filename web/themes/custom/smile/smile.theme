@@ -6,9 +6,9 @@
 function smile_theme_suggestions_node_alter(array &$suggestions, array $variables) {
   $node = $variables['elements']['#node'];
   $content_type = $node->getType();
-  $template_value = $node->get('field_template')->value;
 
   if ($content_type == "blog_article") {
+    $template_value = $node->get('field_template')->value;
     if ($template_value == 'faq') {
       $suggestions[] = 'node__page__faq';
     }
