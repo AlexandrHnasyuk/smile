@@ -7,10 +7,50 @@ dependencies:
     - field.field.node.blog_article.body
     - field.field.node.blog_article.field_countries
     - field.field.node.blog_article.field_template
+    - field.field.node.blog_article.layout_builder__layout
     - node.type.blog_article
   module:
+    - layout_builder
+    - layout_discovery
     - text
     - user
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: true
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
+          9e5911a1-2541-48fd-b039-03a05aea52da:
+            uuid: 9e5911a1-2541-48fd-b039-03a05aea52da
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'extra_field_block:node:blog_article:links'
+            additional: {  }
+            weight: 0
+          ace675f8-bb66-43b3-be1a-39c9f56d932b:
+            uuid: ace675f8-bb66-43b3-be1a-39c9f56d932b
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:blog_article:body'
+              formatter:
+                label: hidden
+                type: text_summary_or_trimmed
+                settings:
+                  trim_length: 300
+                third_party_settings: {  }
+            additional: {  }
+            weight: 1
+        third_party_settings: {  }
 id: node.blog_article.teaser
 targetEntityType: node
 bundle: blog_article
@@ -21,15 +61,16 @@ content:
     type: text_summary_or_trimmed
     weight: 101
     settings:
-      trim_length: 600
+      trim_length: 300
     third_party_settings: {  }
     region: content
   links:
     weight: 100
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
   field_countries: true
   field_template: true
   langcode: true
+  layout_builder__layout: true

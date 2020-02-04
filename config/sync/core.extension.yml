@@ -1,6 +1,7 @@
 module:
   admin_toolbar: 0
   admin_toolbar_tools: 0
+  advagg: 0
   automated_cron: 0
   big_pipe: 0
   block: 0
@@ -12,10 +13,13 @@ module:
   config: 0
   config_translation: 0
   contact: 0
+  content_moderation: 0
   contextual: 0
+  ctools: 0
   datetime: 0
   dblog: 0
   devel: 0
+  devel_generate: 0
   dynamic_page_cache: 0
   editor: 0
   field: 0
@@ -27,8 +31,12 @@ module:
   image: 0
   kint: 0
   language: 0
+  layout_builder: 0
+  layout_discovery: 0
   link: 0
   locale: 0
+  media: 0
+  media_library: 0
   menu_ui: 0
   namespaces: 0
   node: 0
@@ -38,17 +46,22 @@ module:
   path_alias: 0
   quickedit: 0
   rdf: 0
+  redirect: 0
+  responsive_image: 0
   search: 0
   shortcut: 0
   system: 0
   taxonomy: 0
   text: 0
+  token: 0
   toolbar: 0
   tour: 0
   update: 0
   user: 0
   views_ui: 0
+  workflows: 0
   menu_link_content: 1
+  pathauto: 1
   content_translation: 10
   views: 10
   standard: 1000
