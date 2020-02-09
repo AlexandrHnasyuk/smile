@@ -1,0 +1,25 @@
+<?php
+
+/**
+ * Implements hook_page_attachments().
+ */
+function url_video_page_attachments(array &$attachments) {
+  $attachments['#attached']['library'][] = 'url_video/url_video';
+}
+
+/**
+ * Implements hook_theme().
+ */
+function url_video_theme($existing, $type, $theme, $path) {
+  return array(
+    'field_instagram_video' => [
+      'variables' => [
+        'width' => 600,
+        'height' => 450,
+        'video_id' => NULL,
+      ],
+    ],
+  );
+}
+
+

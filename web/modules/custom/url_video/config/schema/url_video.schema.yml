@@ -1,0 +1,10 @@
+field.formatter.settings.field_insta_preview:
+  type: mapping
+  label: 'Formatter with preview'
+  mapping:
+    width:
+      type: string
+      label: 'Width video'
+    height:
+      type: string
+      label: 'Height video'

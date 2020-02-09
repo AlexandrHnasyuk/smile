@@ -1,0 +1,5 @@
+name: URL video formatter
+type: module
+description: Formatter for field URL video Instagram.
+core: 8.x
+package: Custom
