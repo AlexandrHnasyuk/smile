@@ -1,0 +1,7 @@
+pets_owners_form:
+  path: '/pets_owners_form'
+  defaults:
+    _form: '\Drupal\pets_owners_form\Form\PetsForm'
+    _title: 'Pets Form'
+  requirements:
+    _permission: 'access content'
