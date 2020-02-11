@@ -1,0 +1,5 @@
+name: Routing system and menu
+type: module
+description: Routing system and menu module.
+core: 8.x
+package: Custom

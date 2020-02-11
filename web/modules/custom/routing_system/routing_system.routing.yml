@@ -1,0 +1,7 @@
+routing_system.test:
+  path: '/adyax_test'
+  defaults:
+    _controller: '\Drupal\routing_system\Controller\RoutingSystemController::test'
+    _title: 'Test Page)))'
+  requirements:
+    _permission: 'access content'
