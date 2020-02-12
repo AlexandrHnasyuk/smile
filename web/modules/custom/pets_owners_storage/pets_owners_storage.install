@@ -1,0 +1,73 @@
+<?php
+/**
+ * Implements hook_schema().
+ *
+ * @see hook_schema()
+ *
+ * @ingroup pets_owners_storage
+ */
+function pets_owners_storage_schema() {
+  $schema['pets_owners_storage'] = [
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'Unique person ID.',
+      ],
+      'name' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'default' => '',
+        'description' => 'Name of the person.',
+      ],
+      'gender' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'default' => '',
+        'description' => 'Gender of the person.',
+      ],
+      'prefix' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'default' => '',
+        'description' => 'Prefix of the person.',
+      ],
+      'age' => [
+        'type' => 'int',
+        'length' => 255,
+        'description' => 'Age of the person.',
+      ],
+      'father_name' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'default' => '',
+        'description' => 'Father name of the person.',
+      ],
+      'mother_name' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'default' => '',
+        'description' => 'Mother name of the person.',
+      ],
+      'pets' => [
+        'type' => 'boolean',
+        'description' => 'Pets of the person.',
+      ],
+      'name_pets' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'default' => '',
+        'description' => 'Pets name of the person.',
+      ],
+      'email' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'default' => '',
+        'description' => 'Email of the person.',
+      ],
+    ],
+    'primary key' => ['id'],
+  ];
+
+  return $schema;
+}

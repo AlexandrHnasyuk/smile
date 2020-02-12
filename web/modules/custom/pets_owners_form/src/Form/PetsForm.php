@@ -2,8 +2,10 @@
 
 namespace Drupal\pets_owners_form\Form;
 
+use Drupal\Core\Database\Database;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
 
 class PetsForm extends FormBase {
   /**
@@ -26,18 +28,18 @@ class PetsForm extends FormBase {
       '#type' => 'radios',
       '#title' => $this->t('Your gender: '),
       '#options' => [
-        0 => $this->t('male'),
-        1 => $this->t('female'),
-        2 => $this->t('unknown'),
+        'male' => $this->t('male'),
+        'female' => $this->t('female'),
+        'unknown' => $this->t('unknown'),
       ],
     ];
 
     $form['prefix'] = [
       '#type' => 'select',
       '#options' => [
-        0 => $this->t('mr'),
-        1 => $this->t('mrs'),
-        2 => $this->t('ms'),
+        'mr' => $this->t('mr'),
+        'mrs' => $this->t('mrs'),
+        'ms' => $this->t('ms'),
       ],
     ];
 
@@ -53,11 +55,10 @@ class PetsForm extends FormBase {
     ];
 
     $form['parents'] = [
-      '#type' => 'hidden',
+      '#type' => 'container',
       '#prefix' => '<div id="form-container">',
       '#suffix' => '</div>',
     ];
-
     $form['parents']['father_name'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Your father name: '),
@@ -115,9 +116,20 @@ class PetsForm extends FormBase {
    */
   public function ageCallback(array &$form, FormStateInterface $form_state) {
     $age = $form_state->getValue('age');
-    if ($age < 18) {
+    if ($age > 18) {
       $form['parents'] = [
-        '#type' => 'container',
+        '#type' => 'hidden',
+        '#prefix' => '<div id="form-container">',
+        '#suffix' => '</div>',
+      ];
+      $form['parents']['father_name'] = [
+        '#type' => 'textfield',
+        '#title' => $this->t('Your father name: '),
+      ];
+
+      $form['parents']['mother_name'] = [
+        '#type' => 'textfield',
+        '#title' => $this->t('Your mother name: '),
       ];
     }
 
@@ -143,8 +155,24 @@ class PetsForm extends FormBase {
 
   /**
    * @inheritDoc
+   * @throws \Exception
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    drupal_set_message(t('Thank you'));
+    $conn = Database::getConnection();
+    $conn->insert('pets_owners_storage')->fields(
+      [
+        'name' => $form_state->getValue('name'),
+        'gender' => $form_state->getValue('gender'),
+        'prefix' => $form_state->getValue('prefix'),
+        'age' => $form_state->getValue('age'),
+        'father_name' => $form_state->getValue('father_name'),
+        'mother_name' => $form_state->getValue('mother_name'),
+        'pets' => $form_state->getValue('pets'),
+        'name_pets' => $form_state->getValue('name_pets'),
+        'email' => $form_state->getValue('email'),
+      ]
+    )->execute();
+    $url = Url::fromRoute('pets_owners.details');
+    $form_state->setRedirectUrl($url);
   }
 }

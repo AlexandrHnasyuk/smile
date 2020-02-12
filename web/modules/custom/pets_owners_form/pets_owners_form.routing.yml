@@ -5,3 +5,19 @@ pets_owners_form:
     _title: 'Pets Form'
   requirements:
     _permission: 'access content'
+
+pets_owners.details:
+ path: 'details/pets_owners'
+ defaults:
+   _title: 'Thank You Page'
+   _controller: '\Drupal\pets_owners_form\Controller\PetsDetailsController::successpage'
+ requirements:
+   _permission: 'access content'
+
+pets_owners.getdetails:
+ path: '/pets_owners/getdetails'
+ defaults:
+   _title: 'Fetch detail of Employee'
+   _controller: '\Drupal\pets_owners_form\Controller\PetsDetailsController::getDetails'
+ requirements:
+   _permission: 'access content'
