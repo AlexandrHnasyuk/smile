@@ -1,0 +1,5 @@
+name: Views Pets
+type: module
+description: Module with view for pets table.
+core: 8.x
+package: Custom
