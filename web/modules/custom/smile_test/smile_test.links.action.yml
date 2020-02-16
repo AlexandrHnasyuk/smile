@@ -1,0 +1,6 @@
+smile_test.inventory_add:
+  route_name: smile_test.contact_add
+  title: 'Add contact'
+  appears_on:
+    - entity.smile_test.collection
+    - entity.smile_test.canonical

@@ -1,0 +1,7 @@
+name: Smile Test Entity
+type: module
+description: Custom entity "Smile Test".
+core: 8.x
+package: Custom
+
+version: '8.x-1.0'

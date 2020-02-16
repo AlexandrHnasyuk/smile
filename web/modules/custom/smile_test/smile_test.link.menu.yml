@@ -1,0 +1,10 @@
+entity.smile_test_contact.collection:
+  title: 'Content Entity Example'
+  route_name: entity.smile_test.collection
+  description: 'List contacts'
+  weight: 10
+smile_test.admin.structure.settings:
+  title: 'Contact settings'
+  description: 'Configure contact entity'
+  route_name:  smile_test.contact_settings
+  parent: system.admin_structure

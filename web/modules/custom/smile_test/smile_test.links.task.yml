@@ -1,0 +1,20 @@
+contact.settings_tab:
+  route_name: smile_test.inventory_settings
+  title: Settings
+  base_route: smile_test.inventory_settings
+
+contact.view:
+  route_name: entity.smile_test.canonical
+  base_route: entity.smile_test.canonical
+  title: View
+
+contact.page_edit:
+  route_name: entity.smile_test.edit_form
+  base_route: entity.smile_test.canonical
+  title: Edit
+
+contact.delete_confirm:
+  route_name:  entity.smile_test.delete_form
+  base_route:  entity.smile_test.canonical
+  title: Delete
+  weight: 10

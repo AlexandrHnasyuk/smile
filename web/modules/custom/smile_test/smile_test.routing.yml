@@ -1,0 +1,47 @@
+entity.smile_test_contact.canonical:
+  path: '/smile_test_contact/{smile_test_contact}'
+  defaults:
+      _entity_view: 'smile_test_contact'
+      _title: 'Contact content'
+  requirements:
+     _entity_access: 'smile_test_contact.view'
+
+entity.smile_test_contact.collection:
+  path: '/smile_test_contact/list'
+  defaults:
+    _entity_list: 'smile_test_contact'
+    _title: 'Contact list'
+  requirements:
+    _permission: 'view test entity'
+
+entity.smile_test.contact_add:
+  path: '/smile_test_contact/add'
+  defaults:
+    _entity_form: smile_test_contact.default
+    _title: 'Add contact'
+  requirements:
+    _entity_create_access: 'smile_test_contact'
+
+entity.smile_test_contact.edit_form:
+  path: '/smile_test_contact/{smile_test_contact}/edit'
+  defaults:
+    _entity_form: smile_test_contact.default
+    _title: 'Edit contact'
+  requirements:
+    _entity_access: 'smile_test_contact.update'
+
+entity.smile_test_contact.delete_form:
+  path: '/inventory/{smile_test_contact}/delete'
+  defaults:
+    _entity_form: smile_test_contact.delete
+    _title: 'Delete contact'
+  requirements:
+    _entity_access: 'smile_test_contact.delete'
+
+smile_test.contact_settings:
+  path: 'admin/structure/smile_test_contact_settings'
+  defaults:
+    _form: '\Drupal\smile_test\Form\ContactSettingsForm'
+    _title: 'Contact settings'
+  requirements:
+    _permission: 'administer contact entity'

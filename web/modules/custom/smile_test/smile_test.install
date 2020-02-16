@@ -1,0 +1,64 @@
+<?php
+
+use \Drupal\smile_test\Entity\SmileTest;
+
+/**
+ * Implements hook_update_N().
+ *
+ * Set some value to the table fields "smile_test".
+ */
+function smile_test_update_8101() {
+
+  function crt_client($name, $brand, $count) {
+    $node = SmileTest::create([
+      'name' => $name,
+      'preferred_brand' => $brand,
+      'products_owned_count' => $count,
+    ]);
+    $node->save();
+  }
+
+  crt_client('Alex', 'zara', '5');
+  crt_client('Vitalik', 'nike', '7');
+}
+
+/**
+ * Set a current date for every “registration date” value if the value is more
+ * than 10 days (smile_test).
+ *
+ * @throws \Drupal\Core\Entity\EntityStorageException
+ */
+function smile_test_update_8102(&$sandbox) {
+
+  if (!isset($sandbox['total'])) {
+    $now = time();
+    $ten_days_ago = $now - 60*60*24*10;
+    $all_old = \Drupal::entityQuery('smile_test')
+      ->condition('created', $ten_days_ago, '>')
+      ->execute();
+    $sandbox['total'] = count($all_old);
+    $sandbox['current'] = 0;
+  }
+
+  $smiles_per_batch = 25;
+  $all_old = \Drupal::entityQuery('smile_test')
+    ->condition('created', $ten_days_ago, '<')
+    ->range($sandbox['current'], $sandbox['current'] + $smiles_per_batch)
+    ->execute();
+
+  foreach ($all_old as $sml) {
+    $smile = SmileTest::load($sml);
+    $smile->created->value = $now;
+    $smile->save();
+    $sandbox['current']++;
+  }
+
+  \Drupal::messenger()->addMessage($sandbox['current'] . ' client processed.');
+
+  if ($sandbox['total'] == 0) {
+    $sandbox['#finished'] = 1;
+  } else {
+    $sandbox['#finished'] = ($sandbox['current'] / $sandbox['total']);
+  }
+
+}
