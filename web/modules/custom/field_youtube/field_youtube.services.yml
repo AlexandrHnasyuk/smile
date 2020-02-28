@@ -1,0 +1,5 @@
+services:
+  youtube_type.type:
+    class: Drupal\field_youtube\YoutubeEntityType
+    arguments: ['@entity_type.manager']
+

@@ -1,0 +1,10 @@
+name: Custom Entity
+type: module
+description: Custom entity.
+core: 8.x
+package: Custom
+dependencies:
+  - options
+  - entity_reference
+  - examples
+

@@ -3,3 +3,6 @@ type: module
 description: Module with view for pets table.
 core: 8.x
 package: Custom
+dependencies:
+  - pets_owners_form
+  - pets_owners_storage

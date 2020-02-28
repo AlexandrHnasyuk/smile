@@ -50,8 +50,10 @@ function pets_owners_storage_schema() {
         'description' => 'Mother name of the person.',
       ],
       'pets' => [
-        'type' => 'boolean',
-        'description' => 'Pets of the person.',
+        'type' => 'varchar',
+        'length' => 255,
+        'default' => '',
+        'description' => 'Pets.',
       ],
       'name_pets' => [
         'type' => 'varchar',
