@@ -72,7 +72,6 @@ class FieldYoutubeVideoFormatter extends FormatterBase {
 
     return $elements;
   }
-
   /**
    * {@inheritdoc}
    */
@@ -87,8 +86,6 @@ class FieldYoutubeVideoFormatter extends FormatterBase {
     else {
       $summary[] = t('Define video size');
     }
-
     return $summary;
   }
-
 }

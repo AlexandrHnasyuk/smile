@@ -1,0 +1,5 @@
+name: Custom Block for cash
+type: module
+description: Custom Block for cash.
+core: 8.x
+package: Custom

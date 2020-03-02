@@ -3,3 +3,5 @@ type: module
 description: Module with custom form pets with DataBase.
 core: 8.x
 package: Custom
+dependencies:
+  - pets_owners_form

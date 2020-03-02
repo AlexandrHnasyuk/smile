@@ -4,6 +4,9 @@ namespace Drupal\field_youtube\Plugin\Field\FieldFormatter;
 
 use Drupal\Core\Field\FormatterBase;
 use Drupal\Core\Field\FieldItemListInterface;
+use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\Core\Field\FieldDefinitionInterface;
 
 /**
  * Plugin implementation of the 'field_youtube_thumbnail' formatter.
@@ -17,7 +20,33 @@ use Drupal\Core\Field\FieldItemListInterface;
  *   }
  * )
  */
-class FieldYoutubeThumbnailFormatter extends FormatterBase {
+class FieldYoutubeThumbnailFormatter extends FormatterBase implements ContainerFactoryPluginInterface {
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
+    return new static(
+      $plugin_id,
+      $plugin_definition,
+      $configuration['field_definition'],
+      $configuration['settings'],
+      $configuration['label'],
+      $configuration['view_mode'],
+      $configuration['third_party_settings'],
+      $container->get('youtube_type.type')
+    );
+  }
+
+  /**
+   * The entity manager service
+   *
+   * @var \Drupal\Core\Entity\EntityManagerInterface
+   */
+  protected $entityManager;
+
+  public function __construct($plugin_id, $plugin_definition, FieldDefinitionInterface $field_definition, array $settings, $label, $view_mode, array $third_party_settings, EntityManagerInterface $entityManager) {
+
+  }
 
   /**
    * {@inheritdoc}
@@ -36,10 +65,7 @@ class FieldYoutubeThumbnailFormatter extends FormatterBase {
           '#value' => $content,
         );
       }
-
     }
-
     return $elements;
   }
-
 }
