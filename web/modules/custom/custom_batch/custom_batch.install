@@ -1,0 +1,54 @@
+<?php
+
+use Drupal\node\Entity\Node;
+
+function custom_batch_update_8803(&$sandbox) {
+  $db_connection = \Drupal::database();
+
+  if (!isset($sandbox['progress'])) {
+    $sandbox['progress'] = 0;
+    $sandbox['max'] = $db_connection->query('SELECT COUNT(title) FROM {node_field_data}')->fetchField();
+    $sandbox['messages'] = [];
+    $sandbox['current_node'] = -1;
+  }
+
+  $limit = 200;
+
+  $query = $db_connection->select('node_field_data', 'n');
+  $query->fields('n', ['title']);
+  $result = $query
+    ->where('n.title > :title', [':title' => $sandbox['current_node']])
+    ->range(0, $limit)
+    ->orderBy('n.title', 'ASC')
+    ->execute();
+
+  foreach ($result as $row) {
+    $nid = $db_connection->query('SELECT nid FROM {node_field_data} WHERE title = :title', [':title' => $row->title])->fetchField();
+//    $node = Node::load($nid);
+//    $node->set("title", $row->title . ' ' . rand(1, 100));
+//    $node->save();
+    $query = $db_connection->update('node_field_data');
+    $query->fields([
+      'title' =>$row->title . ' ' . rand(1, 100),
+    ]);
+
+    $query->condition('title',$row->title);
+    $query->execute();
+
+    $sandbox['progress']++;
+    $sandbox['current_node'] = $row->title;
+  }
+
+  $sandbox['#finished'] = ($sandbox['progress'] >= $sandbox['max']) ? TRUE : ($sandbox['progress'] / $sandbox['max']);
+
+  $sandbox_status = $sandbox;
+
+  unset($sandbox_status['messages']);
+  $sandbox['messages'][] = t('$sandbox=') . print_r($sandbox_status, TRUE);
+
+  if ($sandbox['#finished']) {
+    $final_message = '<ul><li>' . implode('</li><li>', $sandbox['messages']) . "</li></ul>";
+    return t('The batch_example demonstration update did what it was supposed to do: @message', ['@message' => $final_message]);
+  }
+
+}
